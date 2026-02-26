@@ -1,4 +1,4 @@
-# 🗳️ Voting Locations Helper – Chrome Extension
+# 🗳️ Fabbot Voting Locations Helper for the State of Texas – Chrome Extension
 
 Restyle voting locations into a **compact table** with sort & filter, and find the **three closest** locations using your full address (street, city, state, ZIP).
 
