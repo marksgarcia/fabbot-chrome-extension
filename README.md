@@ -15,7 +15,7 @@ Restyle voting locations into a **compact table** with sort & filter, and find t
   Locations appear as compact rows instead of huge cards. Columns: Location name, Address, Distance (after you run “Find 3 closest”), and an expand control for hours.
 
 - **Expandable hours**  
-  Rows with multiple date/time slots have a **➕** button. Click to expand and see all hours; click **➖** to collapse.
+  Rows with multiple date/time slots have a **➕** button that expands to see all dates and hours for a given location.
 
 - **Sort**  
   Sort by: Name A→Z, Name Z→A, Nearest first, Farthest first. “Nearest first” / “Farthest first” apply after you run “Find 3 closest.”
@@ -23,17 +23,8 @@ Restyle voting locations into a **compact table** with sort & filter, and find t
 - **Filter**  
   Type in the filter box to show only locations whose name or address matches (case-insensitive).
 
-- **Your address in 4 fields**  
-  Street, City, State, and ZIP each have their own input so you can enter a full address clearly.
-
 - **Find 3 closest**  
-  Uses your address (any combination of street, city, state, ZIP) to geocode and then geocode every polling place. The three nearest (straight-line distance in miles) are highlighted and listed in the panel; the table can be sorted by distance.
-
-- **Smarter geocoding**  
-  Your address is sent to Nominatim in **structured form** (street, city, state, ZIP separately) for better matches. If that fails, the extension tries fallbacks: city+state+ZIP, then city+state, then ZIP only, then a single free-form query. That reduces “Could not find that address” when the street is fuzzy or missing.
-
-- **Address suggestions**  
-  As you type, the helper fetches **suggestions** (up to 5) from Nominatim. Click a suggestion to lock that location; “Find 3 closest” then uses it without geocoding again. Handy when the exact street doesn’t match but a suggested one does.
+  Uses your address (any combination of street, city, state, ZIP) to see your distance from every relevant polling place. The three nearest (straight-line distance in miles) are highlighted and listed in the panel; the table can be sorted by distance.
 
 - **Clean minimal panel**  
   Light background, simple typography, and a few emojis (🗳️ 🎯 ✨ 🏆 📍 🔍) to keep the helper easy to scan.
@@ -47,7 +38,7 @@ Restyle voting locations into a **compact table** with sort & filter, and find t
 
 ## 🎯 How to use
 
-1. Open the county voting locations page (the one that lists all polling places).
+1. Open the county voting locations page (the one that lists all polling places) after you have provided your voter registration information on the [My Voter Portal](https://goelect.txelections.civixapps.com/ivis-mvp-ui/#/login) and then navigate to the [polling locations page](https://goelect.txelections.civixapps.com/ivis-mvp-ui/dashboard).
 2. The extension turns the list into a table and shows the **Voting Helper** panel (or click the **🗳️ Helper** tab on the right to open it).
 3. Enter your address in **Street**, **City**, **State**, and **ZIP** (at least city/state or ZIP).
 4. Click **🎯 Find 3 closest**. Wait while it geocodes (about 1 second per location).
@@ -55,13 +46,6 @@ Restyle voting locations into a **compact table** with sort & filter, and find t
 6. Use **🔍 Filter** and **↕️ Sort** above the table to narrow or reorder the list.
 7. Click **➕** on any row to expand and see all hours; click **➖** to collapse.
 8. Click **✨ Clear & show all** to clear distances and reset to an alphabetical view.
-
-## 🛠 Technical notes
-
-- **Geocoding:** OpenStreetMap Nominatim (free, 1 request/second). User address is sent as **structured** params (`street`, `city`, `state`, `postalcode`, `country=United States`, `countrycodes=us`); if that returns nothing, fallbacks are tried (no street, then city+state+ZIP, city+state, ZIP only, then free-form `q=`).
-- **Suggestions:** Same API with `limit=5` and `countrycodes=us`; picking a suggestion stores its lat/lon so “Find 3 closest” doesn’t need to geocode again.
-- **Distance:** Straight-line (Haversine) miles, not driving distance.
-- **Activation:** The script only runs when it finds `.location-card` elements on the page.
 
 ## 📁 Files
 
