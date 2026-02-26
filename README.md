@@ -2,6 +2,13 @@
 
 Restyle voting locations into a **compact table** with sort & filter, and find the **three closest** locations using your full address (street, city, state, ZIP).
 
+### Go From This
+<img width="1512" height="949" alt="Screenshot 2026-02-26 at 12 08 21 AM" src="https://github.com/user-attachments/assets/69b20a4b-ae4d-4484-a9dd-0c88faecccff" />
+
+
+### TO THIS
+<img width="1512" height="949" alt="Screenshot 2026-02-26 at 12 08 50 AM" src="https://github.com/user-attachments/assets/ee9dcecc-cd55-4f98-a0e8-909b2ac436c8" />
+
 ## ✨ Features
 
 - **Table-like view**  
